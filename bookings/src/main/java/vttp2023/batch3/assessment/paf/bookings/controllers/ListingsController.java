@@ -66,8 +66,9 @@ public class ListingsController {
 
 	//TODO: Task 5
 	@PostMapping("/book")
-	public String bookListing(@Valid Booking booking, Listing listing, BindingResult result, Model model, HttpServletRequest request){
+	public String bookListing(@Valid Booking booking, BindingResult result, Model model, HttpServletRequest request){
 
+		System.out.println(booking.getAccId());
 		List <ObjectError> errors = listingsService.bookListing(booking);
 		if (!errors.isEmpty()){
 			for (ObjectError e : errors){

@@ -56,7 +56,7 @@ public class ListingsService {
 
 		List<ObjectError> errors = new LinkedList<>();
 
-		String roomId = booking.getAcc_id();
+		String roomId = booking.getAccId();
 		int bookDays = booking.getDuration();
 		int availablity = listingsRepository.checkVacancy(roomId);
 

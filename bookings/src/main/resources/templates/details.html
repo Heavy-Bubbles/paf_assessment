@@ -54,7 +54,7 @@
     <div>
         <h1>Bookings</h1>
         <form data-th-action="@{/book}" method="post" data-th-object="${booking}">
-            <input type="hidden" data-th-value="${listing.id}" data-th-field="*{acc_id}">
+            <input type="hidden" data-th-value="${listing.id}" data-th-field="*{accId}" required>
             <table>
                 <tr>
                     <td>Name:</td>

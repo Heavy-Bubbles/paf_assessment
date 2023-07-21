@@ -99,7 +99,7 @@ public class ListingsRepository {
 	public Boolean saveBooking(Booking booking){
 		int result = 0;
 		result = jdbcTemplate.update(CHECK_VACANCY, booking.getResv_id(), booking.getName(),
-			booking.getEmail(), booking.getAcc_id(), booking.getArrival_date(), booking.getDuration());
+			booking.getEmail(), booking.getAccId(), booking.getArrival_date(), booking.getDuration());
 
 		return result > 0 ? true : false;
 
@@ -107,7 +107,7 @@ public class ListingsRepository {
 
 	public Boolean updateVacancy(Booking booking){
 		int result = 0;
-		result = jdbcTemplate.update(UPDATE_VACANCY, booking.getDuration(), booking.getAcc_id());
+		result = jdbcTemplate.update(UPDATE_VACANCY, booking.getDuration(), booking.getAccId());
 
 		return result > 0 ? true : false;
 	}

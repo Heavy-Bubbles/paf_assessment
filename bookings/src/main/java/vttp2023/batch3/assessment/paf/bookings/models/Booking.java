@@ -14,7 +14,7 @@ public class Booking {
     private String resv_id;
     private String name;
     private String email;
-    private String acc_id;
+    private String accId;
     private Date arrival_date;
     private int duration;
 }
