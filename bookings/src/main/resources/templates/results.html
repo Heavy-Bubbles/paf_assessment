@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Listings for <span data-th-text="${country}"></span></h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-th-each="l : ${listings}" data-th-object="${l}">
+                <td>
+                    <span data-th-text="*{address.street}"></span>
+                </td>
+                <td>
+                    <span data-th-text="*{price}"></span>
+                </td>
+                <td>
+                    <img data-th-src="*{image}">
+                </td>
+                <td>
+                    <form data-th-action="@{/{id}(id=*{id})}">
+                        <button type="submit">Details</button>
+                    </form>   
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

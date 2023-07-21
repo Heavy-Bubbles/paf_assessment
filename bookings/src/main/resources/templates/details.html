@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Details</title>
+</head>
+
+<body>
+    <div>
+        <table data-th-object="${listing}" border="1">
+            <tr>
+                <td>Id</td>
+                <td>
+                    <span data-th-text="*{id}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td>
+                    <img data-th-src="*{image}">
+                </td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>
+                    <span data-th-text="*{Description}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <span data-th-text="*{address.street}"></span>
+                    <br>
+                    <span data-th-text="*{address.suburb}"></span>
+                    <br>
+                    <span data-th-text="*{address.country}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    <span data-th-text="*{price}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Amenities</td>
+                <td>
+                    <span data-th-text="*{amenities}"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h1>Bookings</h1>
+        <form data-th-action="@{/book}" method="post" data-th-object="${booking}">
+            <input type="hidden" data-th-value="${listing.id}" data-th-field="*{acc_id}">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" data-th-field="*{name}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" data-th-field="*{email}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Arrival:</td>
+                    <td>
+                        <input type="date" data-th-field="*{arrival_date}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Stay:</td>
+                    <td>
+                        <input type="number" data-th-field="*{duration}" required min="1" max="100">
+                    </td>
+                </tr>
+                <tr>
+                    <button type="submit">Book</button>
+                </tr>
+                <tr data-th-if="${#fields.hasErrors('global')}">
+                    <td>
+                        <span data-th-each="err : ${fields.errors('global')}" data-th-text="${err}"></span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <a data-th-href="${referer}">Back</a>
+</body>
+</html>

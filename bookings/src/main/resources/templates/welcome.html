@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Search Our Accomodations</h1>
+    <form action="/search" method="get">
+        <table>
+            <tr>
+                <td>Country</td>
+                <td>
+                    <select name="country" required>
+                        <option data-th-each="c : ${countries}" data-th-text="${c}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Number of person:</td>
+                <td>
+                    <input type="number" min="1" max="10" name="person" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Price Range:</td>
+                <td>
+                    Min <input type="number" min="1" max="10000" name="min" required>
+                </td>
+                <td>
+                    Max <input type="number" min="1" max ="10000" name="max" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Search</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

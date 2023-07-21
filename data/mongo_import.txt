@@ -1,0 +1,1 @@
+mongoimport --uri mongodb://mongo:4h2GfSLbnYRfsMCDSF0r@containers-us-west-79.railway.app:5516/?authSource=admin -d test -c listings --legacy --type=json listings.json
